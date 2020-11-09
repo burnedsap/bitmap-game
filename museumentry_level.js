@@ -27,7 +27,7 @@ function museumentry_level() {
             if (convoState) {
                 npcArr[j].talk();
             }
-        }
+        } 
     }
     if (spr.x > 182 && spr.x < 216 && spr.y > 140 && spr.y < 176) {
         obstacles.removeSprites();

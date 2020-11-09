@@ -1,19 +1,15 @@
-/*
-https://p5js.org/examples/motion-bouncy-bubbles.html
-https://pippinbarr.github.io/b-r-3/info/
-http://www.pippinbarr.com/images/2017/09/26/the-museum-that-must-be-stopped.html
-http://www.uncubemagazine.com/sixcms/detail.php?id=16269435&articleid=art-1446718493345-a6456d05-a03c-4c6f-8145-3654c39b884f#!/page20
-*/
 var spr;
 let sceneNum = 0;
 let npcArr = [];
 let convoState = false;
+let viewState = false;
 let escState = false;
 let convoDistance = 45;
 var obstacles, triggers;
+let luckyNumber = 0;
 
 function setup() {
-    createCanvas(400, 450);
+    createCanvas(400, 480);
     noSmooth();
     // char1 = new Character(width / 2, height / 2);
     //    spr = createSprite(width / 2, height - 100, 25, 50);
@@ -38,9 +34,9 @@ function setup() {
 
     textWall = createSprite(width / 2, height - 25, width, 50);
     textWall.visible = false;
-    
-    
-    
+
+    luckyNumber = floor(random(100));
+
 }
 
 function draw() {
@@ -50,13 +46,13 @@ function draw() {
     levels();
     checkAnimStatus();
     keyInput();
-//     noStroke();
-//     fill(255);
-//     rect(2, 2, 25, 20);
-//     fill(0);
-//     textSize(10);
-//     textFont(pixelFont);
-//     text(floor(frameRate()), 10, 20);
+    //     noStroke();
+    //     fill(255);
+    //     rect(2, 2, 25, 20);
+    //     fill(0);
+    //     textSize(10);
+    //     textFont(pixelFont);
+    //     text(floor(frameRate()), 10, 20);
     if (keyWentDown('esc')) {
         escState = !escState;
     }
@@ -72,7 +68,9 @@ function draw() {
             npcArr[j].npc.visible = true;
         }
     }
+
     drawSprites();
+    
 
 }
 
@@ -107,10 +105,11 @@ function clearNPC() {
 }
 
 function showTextBox(input) {
-    image(textBox, 0, height - 50);
+    image(textBox, 0, height - 80);
     noStroke();
     fill(0);
-    textSize(9);
+    textSize(11);
+    textLeading(16);
     textFont(pixelFont);
-    text(input, 0 + 12, 400 + 8, 380, 40);
+    text(input, 0 + 12, 400 + 8, 380, 75);
 }

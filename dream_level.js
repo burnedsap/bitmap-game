@@ -45,38 +45,41 @@ function dream_level() {
             if (convoState) {
                 npcArr[j].talk();
             }
+        } else {
+            convoState = false;
         }
     }
     if (spr.overlap(md_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             isDreamCoverL = true;
             showTextBox("This is a dream. Running around on the surface of Mars, exploring the landscapes. However, this dream eventually ends up in an asphyxiation nightmare according to the Dream Journal.");
         } else {
             isDreamCoverL = false;
         }
 
-    }
-
-    if (!isDreamCoverL) {
-        image(dreamCoverL, 17, 90);
-    }
-    if (spr.overlap(bg_trigger)) {
+    } else if (spr.overlap(bg_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             isDreamCoverR = true;
             showTextBox("This is a nightmare. Salil hated packing, and one of his nightmares is a never-ending packing exercise, along with the logistical shenanigans of packaging.");
         } else {
             isDreamCoverR = false;
         }
+    } else {
+        viewState = false;
+    }
+    if (!isDreamCoverL) {
+        image(dreamCoverL, 17, 90);
     }
     if (!isDreamCoverR) {
         image(dreamCoverR, 225, 90);
     }
+
 
     if (spr.x > 180 && spr.x < 220 && spr.y > 370) {
         obstacles.removeSprites();

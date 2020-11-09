@@ -31,7 +31,7 @@ function food_level() {
         obstacles.add(sb_collide);
         sb_collide.visible = false;
         sb_trigger.visible = false;
-        
+
         triggers.add(sb_trigger);
         triggers.add(th_trigger);
         triggers.add(gl_trigger);
@@ -53,42 +53,44 @@ function food_level() {
             if (convoState) {
                 npcArr[j].talk();
             }
+        } else{
+            convoState = false;
         }
     }
     if (spr.overlap(cb_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("Chole Bhature. It is Salil's favouritest food of all time. Crispy, yet soft. Smooth, and sharp, it is exquisite. Available at Haldirams for Rs. 140+GST.");
         }
-    }
-    if (spr.overlap(gl_trigger)) {
+    } else if (spr.overlap(gl_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("The Gelato from Cream Choc in Goa. A highlight of his time spent in Goa, it is wonderful. Pairs well with a hot chocolate in the winters. Move over Bologna.");
         }
-    }
-    if (spr.overlap(th_trigger)) {
+    } else if (spr.overlap(th_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("Thepla. Nutritious, and universal, This is Comfort Food. Nothing else compares, don't @ us.");
         }
-    }
-    if (spr.overlap(sb_trigger)) {
+    } else if (spr.overlap(sb_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("Miso Soba. THE noods. It doesn't get better than this. We don't make the rules.");
         }
+    } else {
+        viewState = false;
     }
 
-//    if (spr.y > 180 && spr.y < 220 && spr.x > width - 10) {
+
+    //    if (spr.y > 180 && spr.y < 220 && spr.x > width - 10) {
     if (spr.x > width - 10) {
         obstacles.removeSprites();
         triggers.removeSprites();

@@ -82,63 +82,68 @@ function artifact_level() {
             if (convoState) {
                 npcArr[j].talk();
             }
+        } else{
+            convoState = false;
         }
     }
     if (spr.overlap(sh_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("Salil wore a pair of cheap, beat up sneakers for 4 years straight. One day, a stranger mistook them for trash, and threw them in the bin. Thus ends the tale of his favourite pair of footwear.");
         }
     }
-    if (spr.overlap(em_trigger)) {
+    else if (spr.overlap(em_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("A representation of the amount of energy he spent in trying to be relevant. Hint: None.");
         }
     }
-    if (spr.overlap(pp_trigger)) {
+    else if (spr.overlap(pp_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("Legend has it that Salil once created 100 different paper airplane designs in a day. The originals were never found. Boeing is suspected to have copied some of them for the 737 Max.");
         }
     }
-    if (spr.overlap(bl_trigger)) {
+    else if (spr.overlap(bl_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
-            showTextBox("Blaziken, the starter Pokemon of choice. Having met in Hoenn, they went on many a journey to together, wrecking trainers from Hoenn, and abroad.");
+        if (viewState) {
+            showTextBox("Blaziken, the starter Pokemon of choice. Having met in Hoenn, they went on many a journey together, wrecking trainers from Hoenn, and abroad.");
         }
     }
-    if (spr.overlap(mc_trigger)) {
+    else if (spr.overlap(mc_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("Salil's beloved MacBook Pro. Hard working, resillient, and a loyal companion. Dearly missed. 2012-2020.");
         }
     }
-    if (spr.overlap(mb_trigger)) {
+    else if (spr.overlap(mb_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
-            showTextBox("The myth, the legend that isSalil's meme curation. This memebox is one of the many manifestations. See: burnedsap.tumblr.com");
+        if (viewState) {
+            showTextBox("The myth, the legend that is Salil's meme curation. This memebox is one of the many manifestations. See: burnedsap.tumblr.com");
         }
     }
-    if (spr.overlap(f1_trigger)) {
+    else if (spr.overlap(f1_trigger)) {
         if (keyWentDown(81)) {
-            convoState = !convoState;
+            viewState = !viewState;
         }
-        if (convoState) {
+        if (viewState) {
             showTextBox("One his few passions: F1. This is the Alfa Romeo C39 from 2020 driven by Kimi Raikkonen, which gained 11 positions on the first lap at the Portuguese Grand Prix.");
         }
+    }
+    else {
+        viewState = false;
     }
 
 //    if (spr.y > 180 && spr.y < 220 && spr.x < 10) {

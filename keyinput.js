@@ -45,3 +45,9 @@ function checkAnimStatus() {
         spr.changeAnimation('left_still');
     }
 }
+
+window.addEventListener("keydown", function(e) {
+  if ([39, 37, 38, 40, 81, 69].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
+}, false);

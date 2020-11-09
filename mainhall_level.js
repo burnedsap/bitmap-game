@@ -29,37 +29,19 @@ function mainhall_level() {
         triggers.add(drsign);
         triggers.add(fdsign);
         triggers.add(thsign);
+
+        //Laptop
+        laptop = createSprite(143 + (33 / 2), 339 + (35 / 2), 33, 35);
+        laptop.visible = false;
+        triggers.add(laptop);
+
         for (var i = 1; i <= 8; i++) {
             var w = "wall" + i;
             obstacles.add(eval(w));
             eval(w).visible = false;
         }
     }
-    if (spr.overlap(drsign)) {
-        if (keyWentDown(81)) {
-            convoState = !convoState;
-        }
-        if (convoState) {
-            showTextBox("Dream Room. Contains a dream and a nightmare.");
-        }
-    }
-    if (spr.overlap(fdsign)) {
-        if (keyWentDown(81)) {
-            convoState = !convoState;
-        }
-        if (convoState) {
-            showTextBox("Food Room. A multi-cultural space of food worship. TW: Hunger, strong synesthesia");
-        }
-    }
-    if (spr.overlap(thsign)) {
-        if (keyWentDown(81)) {
-            convoState = !convoState;
-        }
-        if (convoState) {
-            showTextBox("Thing Room. See some of Salil's sacred objects.");
-        }
-    }
-    spr.collide(obstacles);
+//    console.log(convoState);
     for (var j = 0; j < npcArr.length; j++) {
         npcArr[j].display();
         spr.collide(npcArr[j].npc);
@@ -70,10 +52,43 @@ function mainhall_level() {
             if (convoState) {
                 npcArr[j].talk();
             }
-        }
+        } 
     }
+    if (spr.overlap(drsign)) {
+        if (keyWentDown(81)) {
+            viewState = !viewState;
+        }
+        if (viewState) {
+            showTextBox("Dream Room. Contains a dream and a nightmare.");
+        }
+    } else if (spr.overlap(fdsign)) {
+        if (keyWentDown(81)) {
+            viewState = !viewState;
+        }
+        if (viewState) {
+            showTextBox("Food Room. A multi-cultural space of food worship. TW: Hunger, strong synesthesia");
+        }
+    } else if (spr.overlap(thsign)) {
+        if (keyWentDown(81)) {
+            viewState = !viewState;
+        }
+        if (viewState) {
+            showTextBox("Thing Room. See some of Salil's sacred objects.");
+        }
+    } else if (spr.overlap(laptop)) {
+        if (keyWentDown(81)) {
+            viewState = !viewState;
+        }
+        if (viewState) {
+            showTextBox("Museum Employees only. Today's lucky number is: " + luckyNumber);
+        }
+    } else {
+        viewState = false;
+    }
+    spr.collide(obstacles);
+    
 
-//    if (spr.y > 179 && spr.y < 220 && spr.x < 10) {
+    //    if (spr.y > 179 && spr.y < 220 && spr.x < 10) {
     if (spr.x < 10) {
         obstacles.removeSprites();
         triggers.removeSprites();
@@ -81,7 +96,7 @@ function mainhall_level() {
         sceneNum = 3;
         spr.x = width - 20;
         spr.y = (400 / 2) - 5;
-//    } else if (spr.y > 179 && spr.y < 220 && spr.x > width - 10) {
+        //    } else if (spr.y > 179 && spr.y < 220 && spr.x > width - 10) {
     } else if (spr.x > width - 10) {
         obstacles.removeSprites();
         triggers.removeSprites();
@@ -89,7 +104,7 @@ function mainhall_level() {
         sceneNum = 5;
         spr.x = 20;
         spr.y = (400 / 2) - 5;
-//    } else if (spr.x > 182 && spr.x < 216 && spr.y < 40) {
+        //    } else if (spr.x > 182 && spr.x < 216 && spr.y < 40) {
     } else if (spr.y < 40) {
         obstacles.removeSprites();
         triggers.removeSprites();
@@ -97,7 +112,7 @@ function mainhall_level() {
         sceneNum = 4;
         spr.x = width / 2;
         spr.y = 400 - 35;
-//    } else if (spr.x > 182 && spr.x < 216 && spr.y > 400 - 26) {
+        //    } else if (spr.x > 182 && spr.x < 216 && spr.y > 400 - 26) {
     } else if (spr.y > 400 - 26) {
         obstacles.removeSprites();
         triggers.removeSprites();
