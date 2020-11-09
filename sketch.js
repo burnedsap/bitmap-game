@@ -5,7 +5,7 @@ http://www.pippinbarr.com/images/2017/09/26/the-museum-that-must-be-stopped.html
 http://www.uncubemagazine.com/sixcms/detail.php?id=16269435&articleid=art-1446718493345-a6456d05-a03c-4c6f-8145-3654c39b884f#!/page20
 */
 var spr;
-let sceneNum = 2;
+let sceneNum = 0;
 let npcArr = [];
 let convoState = false;
 let escState = false;
@@ -52,13 +52,13 @@ function draw() {
     levels();
     checkAnimStatus();
     keyInput();
-    noStroke();
-    fill(255);
-    rect(2, 2, 25, 20);
-    fill(0);
-    textSize(10);
-    textFont(pixelFont);
-    text(floor(frameRate()), 10, 20);
+//     noStroke();
+//     fill(255);
+//     rect(2, 2, 25, 20);
+//     fill(0);
+//     textSize(10);
+//     textFont(pixelFont);
+//     text(floor(frameRate()), 10, 20);
     if (keyWentDown('esc')) {
         escState = !escState;
     }
