@@ -88,7 +88,8 @@ function food_level() {
         }
     }
 
-    if (spr.y > 180 && spr.y < 220 && spr.x > width - 10) {
+//    if (spr.y > 180 && spr.y < 220 && spr.x > width - 10) {
+    if (spr.x > width - 10) {
         obstacles.removeSprites();
         triggers.removeSprites();
         clearNPC();

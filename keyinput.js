@@ -2,6 +2,11 @@ let lastKey = 'down';
 
 function keyInput() {
     if (keyIsPressed) {
+        if (!backgroundMusic.isPlaying()) {
+            backgroundMusic.play();
+            backgroundMusic.loop();
+            backgroundMusic.setVolume(0.2);
+        }
         if (keyDown('up')) {
             spr.changeAnimation('back_anim');
             spr.setSpeed(2, -90);

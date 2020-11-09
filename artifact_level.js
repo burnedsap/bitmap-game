@@ -141,7 +141,8 @@ function artifact_level() {
         }
     }
 
-    if (spr.y > 180 && spr.y < 220 && spr.x < 10) {
+//    if (spr.y > 180 && spr.y < 220 && spr.x < 10) {
+    if (spr.x < 10) {
         clearNPC();
         obstacles.removeSprites();
         triggers.removeSprites();

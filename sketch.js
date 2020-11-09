@@ -39,9 +39,7 @@ function setup() {
     textWall = createSprite(width / 2, height - 25, width, 50);
     textWall.visible = false;
     
-    backgroundMusic.play();
-    backgroundMusic.loop();
-    backgroundMusic.setVolume(0.2);
+    
     
 }
 

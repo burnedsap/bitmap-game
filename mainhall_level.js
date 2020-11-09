@@ -73,28 +73,32 @@ function mainhall_level() {
         }
     }
 
-    if (spr.y > 179 && spr.y < 220 && spr.x < 10) {
+//    if (spr.y > 179 && spr.y < 220 && spr.x < 10) {
+    if (spr.x < 10) {
         obstacles.removeSprites();
         triggers.removeSprites();
         clearNPC();
         sceneNum = 3;
         spr.x = width - 20;
         spr.y = (400 / 2) - 5;
-    } else if (spr.y > 179 && spr.y < 220 && spr.x > width - 10) {
+//    } else if (spr.y > 179 && spr.y < 220 && spr.x > width - 10) {
+    } else if (spr.x > width - 10) {
         obstacles.removeSprites();
         triggers.removeSprites();
         clearNPC();
         sceneNum = 5;
         spr.x = 20;
         spr.y = (400 / 2) - 5;
-    } else if (spr.x > 182 && spr.x < 216 && spr.y < 40) {
+//    } else if (spr.x > 182 && spr.x < 216 && spr.y < 40) {
+    } else if (spr.y < 40) {
         obstacles.removeSprites();
         triggers.removeSprites();
         clearNPC();
         sceneNum = 4;
         spr.x = width / 2;
         spr.y = 400 - 35;
-    } else if (spr.x > 182 && spr.x < 216 && spr.y > 400 - 26) {
+//    } else if (spr.x > 182 && spr.x < 216 && spr.y > 400 - 26) {
+    } else if (spr.y > 400 - 26) {
         obstacles.removeSprites();
         triggers.removeSprites();
         clearNPC();
