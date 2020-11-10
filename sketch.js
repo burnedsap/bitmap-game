@@ -15,7 +15,7 @@ function setup() {
     //    spr = createSprite(width / 2, height - 100, 25, 50);
     spr = createSprite(width / 2, height / 2, 25, 50);
     spr.setCollider('rectangle', 0, 20, 25, 10);
-
+    spr.scale = 0.25;
     // spr.rotateToDirection = true;
     spr.addAnimation('front_anim', 'char/char_front_1.png', 'char/char_front_15.png');
     spr.addAnimation('front_still', 'char/char_front_still_1.png', 'char/char_front_still_15.png');
@@ -32,7 +32,7 @@ function setup() {
     obstacles = new Group();
     triggers = new Group();
 
-    textWall = createSprite(width / 2, height - 25, width, 50);
+    textWall = createSprite(width / 2, height - 75, width, 50);
     textWall.visible = false;
 
     luckyNumber = floor(random(100));

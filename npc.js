@@ -3,6 +3,7 @@ class NPC {
         this.x = x;
         this.y = y;
         this.npc = createSprite(this.x, this.y, 25, 49);
+        this.npc.scale = 0.25;
         this.npc.setCollider('rectangle', 0, 20, 25, 10);
         this.npc.addAnimation('front', 'npc_green/npc_green_front_still_1.png', 'npc_green/npc_green_front_still_15.png');
         this.npc.addAnimation('right', 'npc_green/npc_green_right_still_1.png', 'npc_green/npc_green_right_still_15.png');
