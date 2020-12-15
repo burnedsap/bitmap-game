@@ -69,8 +69,11 @@ function draw() {
         }
     }
 
+    ySort();
     drawSprites();
-    
+    //    if (keyWentDown('a')) {
+    //        save('museum-of-salil.png');
+    //    }
 
 }
 
@@ -112,4 +115,13 @@ function showTextBox(input) {
     textLeading(16);
     textFont(pixelFont);
     text(input, 0 + 12, 400 + 8, 380, 75);
+}
+
+function ySort() {
+    spr.depth = spr.position.y;
+    if (npcArr) {
+        for (var i = 0; i < npcArr.length; i++) {
+            npcArr[i].npc.depth = npcArr[i].npc.y;
+        }
+    }
 }
